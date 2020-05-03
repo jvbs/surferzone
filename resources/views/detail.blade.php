@@ -3,9 +3,9 @@
 @section('title', 'Visualizar produto')
 
 @section('content')
-        <!-- START MAIN-CONTENT -->
+        <!-- INCIO MAIN-CONTENT -->
         <section id="main-content">
-            <!-- START SECTION-CONTAINER -->
+            <!-- INCIO SECTION-CONTAINER -->
             <div class="section-container">
                 <div class="section-wrapper">
                     <!-- INICIO TOPCONTENT -->
@@ -22,10 +22,12 @@
                     </div>
                     <div class="detail-b bg-color padding-d">
                         <!-- INICIO DETAIL TABS -->
-                        @include('layouts.detail.detail_tabs')
+                        @include('layouts.detail.tabs')
                         <!-- FIM DETAIL TABS -->
                     </div>
                 </div>
             </div>
+            <!-- INCIO SECTION-CONTAINER -->
         </section>
+        <!-- FIM MAIN-CONTENT -->
 @endsection

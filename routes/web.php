@@ -26,6 +26,10 @@ Route::get('/visualizar-produto', function () {
     return view('detail');
 });
 
+Route::get('/meu-carrinho', function () {
+    return view('cart');
+});
+
 
 Auth::routes();
 
