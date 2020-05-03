@@ -52,7 +52,7 @@
                 <!-- END TOPBAR -->
                 <!-- START NAME-LOGO -->
                 <div class="name-logo">
-                    <a href="index.html">
+                    <a href="/">
                         <img class="top-logo" src="{{ asset('img/logo.png') }}" alt="logo" />
                     </a>
                 </div>
