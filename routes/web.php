@@ -30,6 +30,9 @@ Route::get('/meu-carrinho', function () {
     return view('cart');
 });
 
+Route::get('/checkout', function () {
+    return view('billing');
+});
 
 Auth::routes();
 
