@@ -17,8 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/products', function () {
+Route::get('/produtos', function () {
     return view('products');
+});
+
+
+Route::get('/visualizar-produto', function () {
+    return view('detail');
 });
 
 
