@@ -2,9 +2,9 @@
 Projeto Integrador do 3º Semestre, criando um ecommerce para uma loja Sufzone utilizando Laravel como framework
 
 # O que estamos usando no projeto?
-- Laravel como Framework
+- PHP (Laravel)
 - HTML5
-- CSS
+- CSS3
 - Javascript
 - Bootstrap
 
