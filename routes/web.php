@@ -38,5 +38,6 @@ Auth::routes();
 
 
 Route::prefix('admin')->group(function(){
-    Route::get('/home', 'HomeController@index')->name('admin.home');
+    Route::get('/home', 'Admin\HomeController@index')->name('admin.home');
+    Route::get('/visualizar-produtos', 'Admin\ProdutosController@show')->name('admin.products.show');
 });
