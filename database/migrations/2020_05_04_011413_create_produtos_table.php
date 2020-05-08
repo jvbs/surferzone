@@ -19,6 +19,7 @@ class CreateProdutosTable extends Migration
             $table->double('price', 8, 2);
             $table->text('description');
             $table->string('img');
+            $table->double('discount', 8, 2);
             $table->smallInteger('size_id');
             $table->smallInteger('brand_id');
             $table->timestamps();
