@@ -14,5 +14,8 @@ $factory->define(Produtos::class, function (Faker $faker) {
         'discount' => $faker->randomFloat(2, 0, 1),
         'size_id' => $faker->randomDigitNotNull,
         'brand_id' => $faker->randomDigitNotNull,
+        'color_id' => $faker->randomDigitNotNull,
+        'category_id' => $faker->randomDigitNotNull,
+        'stock' => $faker->randomFloat(2, 0, 999),
     ];
 });
