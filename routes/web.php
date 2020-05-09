@@ -39,5 +39,12 @@ Auth::routes();
 
 Route::prefix('admin')->group(function(){
     Route::get('/home', 'Admin\HomeController@index')->name('admin.home');
-    Route::get('/visualizar-produtos', 'Admin\ProdutosController@show')->name('admin.products.show');
+    Route::prefix('produtos')->group(function(){
+        Route::get('/', 'Admin\ProdutosController@show')->name('admin.products.show');
+        Route::get('/novo', 'Admin\ProdutosController@create')->name('admin.products.create');
+        Route::post('/novo', 'Admin\ProdutosController@store')->name('admin.products.store');
+
+        Route::get('/editar/{id_produto}', 'Admin\ProdutosController@edit')->name('admin.products.edit');
+
+    });
 });

@@ -8,43 +8,29 @@ use Illuminate\Http\Request;
 
 class ProdutosController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('admin.products.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $products = Produtos::create($request->all());
+        // $products = $request->all();
+
+        return redirect(route('admin.products.show'));
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Produtos  $produtos
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Produtos $produtos)
     {
         return view('admin.products.show', [
@@ -52,35 +38,19 @@ class ProdutosController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Produtos  $produtos
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Produtos $produtos)
+
+    public function edit(Produtos $id_produto)
     {
-        //
+        return view('admin.products.edit')->with('product', $id_produto);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Produtos  $produtos
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Produtos $produtos)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Produtos  $produtos
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Produtos $produtos)
     {
         //
