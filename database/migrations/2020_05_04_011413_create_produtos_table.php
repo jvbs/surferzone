@@ -23,8 +23,8 @@ class CreateProdutosTable extends Migration
             $table->smallInteger('size_id');
             $table->smallInteger('brand_id');
             $table->smallInteger('color_id');
-            $table->smallInteger('category_id');
             $table->smallInteger('stock');
+            $table->smallInteger('category_id');
             $table->timestamps();
         });
     }
