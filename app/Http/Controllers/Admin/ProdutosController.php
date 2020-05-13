@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Produtos;
+use Alert;
 use Illuminate\Http\Request;
 
 class ProdutosController extends Controller
@@ -25,6 +26,7 @@ class ProdutosController extends Controller
     {
         Produtos::create($request->all());
         // $products = $request->all();
+        Alert::success('Show!', 'Um novo produto foi criado com sucesso!');
 
         return redirect(route('admin.products.show'));
 
@@ -49,12 +51,18 @@ class ProdutosController extends Controller
     {
         $produto->update($request->all());
 
+        Alert::success('Show!', 'Alterações realizadas com sucesso!');
+
         return redirect(route('admin.products.show'));
     }
 
 
     public function destroy(Produtos $produto)
     {
-        dd($produto);
+        if($produto->delete()){
+            Alert::success('Show!', 'Produto excluído com sucesso!');
+
+            return redirect(route('admin.products.show'));
+        }
     }
 }

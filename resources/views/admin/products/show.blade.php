@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-
+@include('sweetalert::alert')
 <div class="container">
     <div class="row">
         <div class="col-lg-12" style="margin-bottom:35px">
