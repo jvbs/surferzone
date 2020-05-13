@@ -13,41 +13,45 @@
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label for="input-product-name">Nome</label>
-                <input type="text" class="form-control" id="input-product-name" name="name">
+                <input type="text" class="form-control" id="input-product-name" name="name" autocomplete="off">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label for="input-product-description">Descrição</label>
-                <textarea name="description" class="form-control" id="input-product-description" rows="5" ></textarea>
+                <textarea name="description" class="form-control" id="input-product-description" rows="5" autocomplete="off"></textarea>
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-4">
                 <label for="input-product-price">Preço</label>
-                <input type="number" class="form-control" id="input-product-price" name="price">
+                <input type="number" class="form-control" id="input-product-price" name="price" autocomplete="off">
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-4">
                 <label for="input-product-discount">Desconto</label>
-                <input type="number" class="form-control" id="input-product-discount" name="discount">
+                <input type="number" class="form-control" id="input-product-discount" name="discount" autocomplete="off">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="input-product-stock">Estoque</label>
+                <input type="number" class="form-control" id="input-product-stock" name="stock" autocomplete="off">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="input-product-size_id">Tamanho</label>
-                <input type="number" class="form-control" id="input-product-size_id" name="size_id">
+                <input type="number" class="form-control" id="input-product-size_id" name="size_id" autocomplete="off">
             </div>
             <div class="form-group col-md-3">
                 <label for="input-product-brand_id">Marca</label>
-                <input type="number" class="form-control" id="input-product-brand_id" name="brand_id">
+                <input type="number" class="form-control" id="input-product-brand_id" name="brand_id" autocomplete="off">
             </div>
             <div class="form-group col-md-3">
                 <label for="input-product-category_id">Categoria</label>
-                <input type="number" class="form-control" id="input-product-category_id" name="category_id">
+                <input type="number" class="form-control" id="input-product-category_id" name="category_id" autocomplete="off">
             </div>
             <div class="form-group col-md-3">
                 <label for="input-product-color_id">Cor</label>
-                <input type="number" class="form-control" id="input-product-color_id" name="color_id">
+                <input type="number" class="form-control" id="input-product-color_id" name="color_id" autocomplete="off">
             </div>
         </div>
         <div class="form-row">

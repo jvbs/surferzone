@@ -27,13 +27,17 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-4">
                 <label for="input-product-price">Preço</label>
                 <input type="number" class="form-control" id="input-product-price" name="price" value="{{ $product->price }}">
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-4">
                 <label for="input-product-discount">Desconto</label>
                 <input type="number" class="form-control" id="input-product-discount" name="discount" value="{{ $product->discount }}">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="input-product-stock">Estoque</label>
+                <input type="number" class="form-control" id="input-product-stock" name="stock" value="{{ $product->stock }}" autocomplete="off">
             </div>
         </div>
         <div class="form-row">
