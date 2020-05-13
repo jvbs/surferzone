@@ -44,7 +44,10 @@ Route::prefix('admin')->group(function(){
         Route::get('/novo', 'Admin\ProdutosController@create')->name('admin.products.create');
         Route::post('/novo', 'Admin\ProdutosController@store')->name('admin.products.store');
 
-        Route::get('/editar/{id_produto}', 'Admin\ProdutosController@edit')->name('admin.products.edit');
+        Route::get('{produto}/editar', 'Admin\ProdutosController@edit')->name('admin.products.edit');
+        Route::put('{produto}/editar', 'Admin\ProdutosController@update')->name('admin.products.update');
+
+        Route::delete('{produto}', 'Admin\ProdutosController@destroy')->name('admin.products.destroy');
 
     });
 });

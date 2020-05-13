@@ -30,9 +30,12 @@
                                 <td>{{ $product->description }}</td>
                                 <td style="display:inline-flex;align-content:space-between">
                                     <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-circle btn-md btn-warning" style="margin-right:2px"><i class="fa fa-pencil"></i></a>
-                                    <a href="" class="btn btn-circle btn-md btn-danger" style="margin-left:2px"><i class="fa fa-trash"></i></a>
+                                    <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button href="" class="btn btn-circle btn-md btn-danger" style="margin-left:2px"><i class="fa fa-trash"></i></button>
+                                    </form>
                                 </td>
-                                {{-- <td><img src="{{ $product->img }}" alt=""></td> --}}
                             </tr>
                         @endforeach
                     </tbody>

@@ -23,7 +23,7 @@ class ProdutosController extends Controller
 
     public function store(Request $request)
     {
-        $products = Produtos::create($request->all());
+        Produtos::create($request->all());
         // $products = $request->all();
 
         return redirect(route('admin.products.show'));
@@ -31,7 +31,7 @@ class ProdutosController extends Controller
     }
 
 
-    public function show(Produtos $produtos)
+    public function show()
     {
         return view('admin.products.show', [
             'data' => Produtos::all(),
@@ -39,20 +39,22 @@ class ProdutosController extends Controller
     }
 
 
-    public function edit(Produtos $id_produto)
+    public function edit(Produtos $produto)
     {
-        return view('admin.products.edit')->with('product', $id_produto);
+        return view('admin.products.edit')->with('product', $produto);
     }
 
 
-    public function update(Request $request, Produtos $produtos)
+    public function update(Request $request, Produtos $produto)
     {
-        //
+        $produto->update($request->all());
+
+        return redirect(route('admin.products.show'));
     }
 
 
-    public function destroy(Produtos $produtos)
+    public function destroy(Produtos $produto)
     {
-        //
+        dd($produto);
     }
 }

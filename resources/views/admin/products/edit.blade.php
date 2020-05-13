@@ -8,8 +8,9 @@
             <h1>Editar produto</h1>
         </div>
     </div>
-    <form action="">
+<form action="{{ route('admin.products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <div class="form-row">
             <div class="form-group col-md-1">
                 <label for="input-product-id">ID</label>
@@ -17,23 +18,23 @@
             </div>
             <div class="form-group col-md-11">
                 <label for="input-product-name">Nome</label>
-                <input type="text" class="form-control" id="input-product-name" name="name" value="{{ $product->name }}">
+                <input type="text" class="form-control" id="input-product-name" name="name" value="{{ $product->name }}" autocomplete="off">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label for="input-product-description">Descrição</label>
-                <textarea name="description" class="form-control" id="input-product-description" rows="5" >{{ $product->description }}</textarea>
+                <textarea name="description" class="form-control" id="input-product-description" rows="5" autocomplete="off">{{ $product->description }}</textarea>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="input-product-price">Preço</label>
-                <input type="number" class="form-control" id="input-product-price" name="price" value="{{ $product->price }}">
+                <input type="number" class="form-control" id="input-product-price" name="price" value="{{ $product->price }}" autocomplete="off">
             </div>
             <div class="form-group col-md-4">
                 <label for="input-product-discount">Desconto</label>
-                <input type="number" class="form-control" id="input-product-discount" name="discount" value="{{ $product->discount }}">
+                <input type="number" class="form-control" id="input-product-discount" name="discount" value="{{ $product->discount }}" autocomplete="off">
             </div>
             <div class="form-group col-md-4">
                 <label for="input-product-stock">Estoque</label>
@@ -43,19 +44,19 @@
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="input-product-size_id">Tamanho</label>
-                <input type="number" class="form-control" id="input-product-size_id" name="size_id" value="{{ $product->size_id }}">
+                <input type="number" class="form-control" id="input-product-size_id" name="size_id" value="{{ $product->size_id }}" autocomplete="off">
             </div>
             <div class="form-group col-md-3">
                 <label for="input-product-brand_id">Marca</label>
-                <input type="number" class="form-control" id="input-product-brand_id" name="brand_id" value="{{ $product->brand_id }}">
+                <input type="number" class="form-control" id="input-product-brand_id" name="brand_id" value="{{ $product->brand_id }}" autocomplete="off">
             </div>
             <div class="form-group col-md-3">
                 <label for="input-product-category_id">Categoria</label>
-                <input type="number" class="form-control" id="input-product-category_id" name="category_id" value="{{ $product->category_id }}">
+                <input type="number" class="form-control" id="input-product-category_id" name="category_id" value="{{ $product->category_id }}" autocomplete="off">
             </div>
             <div class="form-group col-md-3">
                 <label for="input-product-color_id">Cor</label>
-                <input type="number" class="form-control" id="input-product-color_id" name="color_id" value="{{ $product->color_id }}">
+                <input type="number" class="form-control" id="input-product-color_id" name="color_id" value="{{ $product->color_id }}" autocomplete="off">
             </div>
         </div>
         <div class="form-row">
