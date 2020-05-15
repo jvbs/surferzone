@@ -62,10 +62,14 @@
         <div class="form-row">
             <div class="form-group col-lg-12">
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="validatedCustomFile">
-                    <label class="custom-file-label" for="validatedCustomFile">Escolher imagem...</label>
+                    <input type="file" class="custom-file-input" name="img" id="input-product-img">
+                    <label class="custom-file-label" for="input-product-img">Escolher imagem...</label>
                 </div>
             </div>
+        </div>
+        <div class="form-row" style="display:grid">
+            <span>Preview:</span>
+            <img style="width:30%;height:auto;box-shadow: 0px 0px 20px #0000004d;margin-top:5px" src="{{ asset('storage/img/products/'.$product->img) }}" alt="Imagem {{ $product->name }}">
         </div>
         <button class="btn btn-success pull-right"><i class="fa fa-check-circle"></i> Editar produto</button>
     </form>

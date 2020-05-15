@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Produtos;
 use Alert;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProdutosController extends Controller
 {
@@ -24,6 +25,9 @@ class ProdutosController extends Controller
 
     public function store(Request $request)
     {
+        // inserindo informações no db
+        $produtos = Produtos::create($request->all());
+
         if ($request->hasFile('img')) {
             $completeFilename = $request->file('img')->getClientOriginalName();
             // nome do arquivo
@@ -32,17 +36,14 @@ class ProdutosController extends Controller
             $ext = $request->file('img')->getClientOriginalExtension();
             $finalFilename = 'surferzone_'.md5($filename).time().'.'.$ext;
             // upload da img
-            if($request->file('img')->storeAs('public/img/products', $finalFilename)){
-                // inserindo informações no db
-                $produtos = Produtos::create($request->all());
-                // atualizando caminho da img
-                $produtos->img = $finalFilename;
-                $produtos->save();
+            $request->file('img')->storeAs('public/img/products', $finalFilename);
+            // atualizando caminho da img
+            $produtos->img = $finalFilename;
+            $produtos->save();
 
-                Alert::success('Show!', 'Um novo produto foi criado com sucesso!');
+            Alert::success('Show!', 'Um novo produto foi criado com sucesso!');
 
-                return redirect(route('admin.products.show'));
-            }
+            return redirect(route('admin.products.show'));
         }
     }
 
@@ -64,6 +65,24 @@ class ProdutosController extends Controller
     public function update(Request $request, Produtos $produto)
     {
         $produto->update($request->all());
+
+
+        if ($request->hasFile('img')) {
+            // excluir img atual do storage
+            Storage::delete($produto->img);
+
+            $completeFilename = $request->file('img')->getClientOriginalName();
+            // nome do arquivo
+            $filename = pathinfo($completeFilename, PATHINFO_FILENAME);
+            // extensao do arquivo
+            $ext = $request->file('img')->getClientOriginalExtension();
+            $finalFilename = 'surferzone_'.md5($filename).time().'.'.$ext;
+            // upload da img
+            $request->file('img')->storeAs('public/img/products', $finalFilename);
+            // atualizando caminho da img
+            $produto->img = $finalFilename;
+            $produto->save();
+        }
 
         Alert::success('Show!', 'Alterações realizadas com sucesso!');
 
