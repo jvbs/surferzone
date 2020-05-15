@@ -24,12 +24,26 @@ class ProdutosController extends Controller
 
     public function store(Request $request)
     {
-        Produtos::create($request->all());
-        // $products = $request->all();
-        Alert::success('Show!', 'Um novo produto foi criado com sucesso!');
+        if ($request->hasFile('img')) {
+            $completeFilename = $request->file('img')->getClientOriginalName();
+            // nome do arquivo
+            $filename = pathinfo($completeFilename, PATHINFO_FILENAME);
+            // extensao do arquivo
+            $ext = $request->file('img')->getClientOriginalExtension();
+            $finalFilename = 'surferzone_'.md5($filename).time().'.'.$ext;
+            // upload da img
+            if($request->file('img')->storeAs('public/img/products', $finalFilename)){
+                // inserindo informações no db
+                $produtos = Produtos::create($request->all());
+                // atualizando caminho da img
+                $produtos->img = $finalFilename;
+                $produtos->save();
 
-        return redirect(route('admin.products.show'));
+                Alert::success('Show!', 'Um novo produto foi criado com sucesso!');
 
+                return redirect(route('admin.products.show'));
+            }
+        }
     }
 
 

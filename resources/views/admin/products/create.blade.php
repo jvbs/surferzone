@@ -57,8 +57,8 @@
         <div class="form-row">
             <div class="form-group col-lg-12">
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" name="img" id="validatedCustomFile">
-                    <label class="custom-file-label" for="validatedCustomFile">Escolher imagem...</label>
+                    <input type="file" class="custom-file-input" name="img" id="input-product-img">
+                    <label class="custom-file-label" for="input-product-img">Escolher imagem...</label>
                 </div>
             </div>
         </div>
