@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Produtos;
+use App\Brands;
 use Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -19,7 +20,7 @@ class ProdutosController extends Controller
 
     public function create()
     {
-        return view('admin.products.create');
+        return view('admin.products.create')->with('brands', Brands::all());
     }
 
 
@@ -51,7 +52,7 @@ class ProdutosController extends Controller
     public function show()
     {
         return view('admin.products.show', [
-            'data' => Produtos::all(),
+            'data' => Produtos::all()
         ]);
     }
 

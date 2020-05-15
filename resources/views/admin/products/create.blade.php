@@ -43,7 +43,12 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="input-product-brand_id">Marca</label>
-                <input type="number" class="form-control" id="input-product-brand_id" name="brand_id" autocomplete="off">
+                <select class="form-control" name="brand_id" id="input-product-brand_id">
+                    <option value="">--SELECIONE--</option>
+                    @foreach ($brands as $brand)
+                        <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group col-md-3">
                 <label for="input-product-category_id">Categoria</label>

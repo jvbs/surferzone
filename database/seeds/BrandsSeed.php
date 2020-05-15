@@ -13,17 +13,17 @@ class BrandsSeed extends Seeder
     public function run()
     {
         DB::table('brands')->insert([
-            ['brand_name' => 'Quiksilver'],
-            ['brand_name' => 'Element'],
-            ['brand_name' => 'Mormaii'],
-            ['brand_name' => 'Rip Curl'],
-            ['brand_name' => 'Billabong'],
-            ['brand_name' => 'Fatal Surf'],
-            ['brand_name' => 'Hurley'],
-            ['brand_name' => 'Hang Loose'],
-            ['brand_name' => 'Volcom'],
-            ['brand_name' => 'Oakley'],
-            ['brand_name' => 'Ecko Unltd.'],
+            ['name' => 'Quiksilver'],
+            ['name' => 'Element'],
+            ['name' => 'Mormaii'],
+            ['name' => 'Rip Curl'],
+            ['name' => 'Billabong'],
+            ['name' => 'Fatal Surf'],
+            ['name' => 'Hurley'],
+            ['name' => 'Hang Loose'],
+            ['name' => 'Volcom'],
+            ['name' => 'Oakley'],
+            ['name' => 'Ecko Unltd.'],
         ]);
     }
 }
