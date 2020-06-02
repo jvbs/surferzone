@@ -26,7 +26,7 @@
                                 <td>{{ $product->id }}</td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->price }}</td>
-                                <td>{{ $product->discount*100 }}%</td>
+                                <td>{{ $product->discount }}%</td>
                                 <td>{{ $product->description }}</td>
                                 <td style="display:inline-flex;align-content:space-between">
                                     <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-circle btn-md btn-warning" style="margin-right:2px"><i class="fa fa-pencil"></i></a>

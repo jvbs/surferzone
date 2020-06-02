@@ -26,6 +26,25 @@ class ProdutosController extends Controller
 
     public function store(Request $request)
     {
+        // tratando campos com mascara
+        $request->merge([
+            'price' => str_replace(',', '.', str_replace('.', '', $request['price'])),
+            'discount' => str_replace('%', '', $request['discount']),
+        ]);
+
+        $request->validate([
+            'name' => 'required|between:5,50',
+            'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
+            'description' => 'required',
+            'img' => 'required|image',
+            'discount' => 'required|between:1,100',
+            'size_id'=> 'required|integer',
+            'brand_id'=> 'required|integer',
+            'color_id'=> 'required|integer',
+            'category_id'=> 'required|integer',
+            'stock'=> 'required|integer|between:1,999'
+        ]);
+
         // inserindo informações no db
         $produtos = Produtos::create($request->all());
 
@@ -70,8 +89,27 @@ class ProdutosController extends Controller
 
     public function update(Request $request, Produtos $produto)
     {
-        $produto->update($request->all());
 
+        // tratando campos com mascara
+        $request->merge([
+            'price' => str_replace(',', '.', str_replace('.', '', $request['price'])),
+            'discount' => str_replace('%', '', $request['discount']),
+        ]);
+
+        $request->validate([
+            'name' => 'required|between:5,50',
+            'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
+            'description' => 'required',
+            'img' => 'required|image',
+            'discount' => 'required|between:1,100',
+            'size_id'=> 'required|integer',
+            'brand_id'=> 'required|integer',
+            'color_id'=> 'required|integer',
+            'category_id'=> 'required|integer',
+            'stock'=> 'required|integer|between:1,999'
+        ]);
+
+        $produto->update($request->all());
 
         if ($request->hasFile('img')) {
             // excluir img atual do storage

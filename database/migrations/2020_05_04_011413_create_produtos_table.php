@@ -19,13 +19,15 @@ class CreateProdutosTable extends Migration
             $table->double('price', 8, 2);
             $table->text('description');
             $table->string('img');
-            $table->double('discount', 8, 2);
+            $table->smallInteger('discount');
             $table->smallInteger('size_id');
             $table->smallInteger('brand_id');
             $table->smallInteger('color_id');
-            $table->smallInteger('stock');
             $table->smallInteger('category_id');
+            $table->smallInteger('stock');
             $table->timestamps();
+
+            $table->index('category_id');
         });
     }
 
