@@ -59,7 +59,12 @@ class ProdutosController extends Controller
 
     public function edit(Produtos $produto)
     {
-        return view('admin.products.edit')->with('product', $produto);
+        $data = [
+            'product' => $produto,
+            'brands' => Brands::all(),
+        ];
+
+        return view('admin.products.edit')->with('data', $data);
     }
 
 
