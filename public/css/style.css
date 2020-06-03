@@ -1576,7 +1576,8 @@ a.product:hover {
 
 .block-name-price {
     text-align: left;
-    margin-top: 35px;
+    text-transform: uppercase;
+    /* margin-top: 35px; */
     color: #2b2b2b;
 }
 
@@ -1591,7 +1592,12 @@ a.product:hover {
     font-size: 22px;
 }
 
-.block-text p {
+.block-name-price span:nth-of-type(2) {
+    text-decoration: line-through;
+    color: #ff7b7b;
+}
+
+.block-text {
     text-align: left;
     margin-top: 15px;
 }
@@ -1608,12 +1614,16 @@ a.product:hover {
 .block-stock {
     color: gray;
     letter-spacing: 1px;
-    margin-top: 40px;
+    margin: 25px 0;
     text-align: left;
 }
 
-.block-stock span {
+.block-stock span.has-stock {
     color: #37d72b;
+}
+
+.block-stock span.has-no-stock {
+    color: #da1919;
 }
 
 .block-button {

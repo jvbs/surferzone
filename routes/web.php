@@ -20,12 +20,8 @@ Route::get('/produtos', 'HomeController@show')->name('show');
 Route::get('/produtos/{category}/categoria', 'HomeController@searchByCategory')->name('show.search.category');
 Route::get('/produtos/{brand}/marca', 'HomeController@searchByBrand')->name('show.search.brand');
 
+Route::get('/produtos/{product}/detalhe', 'HomeController@viewProduct')->name('show.product.detail');
 
-
-
-Route::get('/visualizar-produto', function () {
-    return view('detail');
-});
 
 Route::get('/meu-carrinho', function () {
     return view('cart');

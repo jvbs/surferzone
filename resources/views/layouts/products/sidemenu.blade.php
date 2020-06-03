@@ -16,7 +16,11 @@
                     <h4>MARCAS</h4>
                     <ul>
                         @foreach ($data['brands'] as $brand)
-                            <li><a href="{{ route('show.search.brand', $brand->id) }}">{{ $brand->name }}</a></li>
+                            @if (Request::segment(2) == $brand->id && Request::segment(3) == 'marca')
+                                <li class="active"><a href="{{ route('show.search.brand', $brand->id) }}">{{ $brand->name }}</a></li>
+                            @else
+                                <li><a href="{{ route('show.search.brand', $brand->id) }}">{{ $brand->name }}</a></li>
+                            @endif
                         @endforeach
                     </ul>
                 </div>

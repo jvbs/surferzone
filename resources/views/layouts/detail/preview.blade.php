@@ -3,8 +3,8 @@
         <div id="carousel-easyzoom">
             <div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails ">
                 <div class="zoom-fit-image">
-                    <a href="assets/img/tr1.png">
-                        <img src="{{ asset('img/tr1.png') }}" alt="product">
+                    <a href="{{ asset('storage/img/products/' . $data->img) }}">
+                        <img src="{{ asset('storage/img/products/' . $data->img) }}" alt="{{ $data->name }}">
                     </a>
                 </div>
             </div>

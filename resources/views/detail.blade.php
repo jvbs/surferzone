@@ -22,7 +22,7 @@
                     </div>
                     <div class="detail-b bg-color padding-d">
                         <!-- INICIO DETAIL TABS -->
-                        @include('layouts.detail.tabs')
+                        {{-- @include('layouts.detail.tabs') --}}
                         <!-- FIM DETAIL TABS -->
                     </div>
                 </div>

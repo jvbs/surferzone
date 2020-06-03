@@ -44,6 +44,9 @@ class HomeController extends Controller
         ];
 
         return view('products')->with('data', $data);
-        // return view('products');
+    }
+
+    public function viewProduct(Produtos $product){
+        return view('detail')->with('data', $product);
     }
 }
