@@ -1,26 +1,31 @@
 <div class="col-md-9 bg-color">
     <div class="product-grid row">
-        @foreach ($data['products'] as $produto)
-            <div class="col col-md-4 col-xs-6">
-                <a class="product" href="#">
-                    <div class="product-img">
-                        <div class="item">
-                            <img src="{{ asset('storage/img/products/'.$produto->img) }}" alt="item">
+        @if(count($data['products']) > 0)
+            @foreach ($data['products'] as $produto)
+                <div class="col col-md-4 col-xs-6">
+                    <a class="product" href="#">
+                        <div class="product-img">
+                            <div class="item">
+                                <img src="{{ asset('storage/img/products/'.$produto->img) }}" alt="item">
+                            </div>
                         </div>
-                    </div>
-                    <div class="name-price">
-                        <h5>{{ $produto->name }}</h5>
-                        @php
-                            if($produto->discount > 0){
-                                $discount = ($produto->price * $produto->discount)/100;
-                                echo "<span>R$ ".number_format(($produto->price - $discount), 2)."</span>";
-                            }
-                        @endphp
-                        <span>R$ {{ $produto->price }}</span>
-                    </div>
-                </a>
-            </div>
-        @endforeach
+                        <div class="name-price">
+                            <h5>{{ $produto->name }}</h5>
+                            @php
+                                if($produto->discount > 0){
+                                    $discount = ($produto->price * $produto->discount)/100;
+                                    echo "<span>R$ ".number_format(($produto->price - $discount), 2)."</span>";
+                                }
+                            @endphp
+                            <span>R$ {{ $produto->price }}</span>
+                        </div>
+                    </a>
+                </div>
+            @endforeach
+        @else
+            Nenhum produto encontrado.
+        @endif
+
     </div>
     {{-- <div class="grid-pagination">
         <ul>
