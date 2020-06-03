@@ -23,4 +23,15 @@ class HomeController extends Controller
 
         return view('products')->with('data', $data);
     }
+
+    public function searchByCategory(Category $category){
+        $data = [
+            'products' => $category->produtos()->paginate(15),
+            'categories' => Category::all(),
+            'brands' => Brands::all(),
+        ];
+
+        return view('products')->with('data', $data);
+        // return view('products');
+    }
 }

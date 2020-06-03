@@ -1284,6 +1284,10 @@ a.see-more:hover {
     letter-spacing: 1px;
 }
 
+.category ul li.active {
+    font-weight: bold;
+}
+
 .category {
     text-align: left;
     padding: 20px;
