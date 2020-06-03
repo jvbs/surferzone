@@ -18,6 +18,7 @@ Route::get('/', 'HomeController@index')->name('index');
 Route::get('/produtos', 'HomeController@show')->name('show');
 
 Route::get('/produtos/{category}/categoria', 'HomeController@searchByCategory')->name('show.search.category');
+Route::get('/produtos/{brand}/marca', 'HomeController@searchByBrand')->name('show.search.brand');
 
 
 

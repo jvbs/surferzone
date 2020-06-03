@@ -16,7 +16,7 @@
                     <h4>MARCAS</h4>
                     <ul>
                         @foreach ($data['brands'] as $brand)
-                            <li><a href="#">{{ $brand->name }}</a></li>
+                            <li><a href="{{ route('show.search.brand', $brand->id) }}">{{ $brand->name }}</a></li>
                         @endforeach
                     </ul>
                 </div>

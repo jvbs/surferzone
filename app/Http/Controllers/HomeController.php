@@ -29,6 +29,18 @@ class HomeController extends Controller
             'products' => $category->produtos()->paginate(15),
             'categories' => Category::all(),
             'brands' => Brands::all(),
+            'currentCategory' => $category
+        ];
+
+        return view('products')->with('data', $data);
+    }
+
+    public function searchByBrand(Brands $brand){
+        $data = [
+            'products' => $brand->produtos()->paginate(15),
+            'categories' => Category::all(),
+            'brands' => Brands::all(),
+            'currentBrand' => $brand
         ];
 
         return view('products')->with('data', $data);

@@ -13,6 +13,6 @@ class Brands extends Model
     ];
 
     public function produtos(){
-        return $this->belongsTo(Produtos::class);
+        return $this->belongsTo(Produtos::class, 'id', 'brand_id');
     }
 }
