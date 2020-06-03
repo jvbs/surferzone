@@ -13,13 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/produtos', function () {
-    return view('products');
-});
+Route::get('/', 'HomeController@index')->name('index');
+Route::get('/produtos', 'HomeController@show')->name('show');
+
 
 
 Route::get('/visualizar-produto', function () {

@@ -39,7 +39,7 @@ class ProductsController extends Controller
 
         $request->validate([
             'name' => 'required|between:5,50',
-            'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
+            'price' => 'required|numeric',
             'description' => 'required',
             'img' => 'required|image',
             'discount' => 'required|between:1,100',

@@ -12,14 +12,16 @@
     <div class="flexslider">
         <ul class="slides">
             <li class="slider-height">
-                <div class="section-background bg" style="background-image: url({{ asset('img/slider-1.jpg') }});">
-                    <div class="slider-overlay">
-                        <div class="slider-box">
-                            <div class="slider-title">NEW SUMMER</div>
-                            <div class="slider-subtitle">COLLECTION</div>
+                <a href="{{ route('show') }}">
+                    <div class="section-background bg" style="background-image: url({{ asset('img/slider-1.jpg') }});">
+                        <div class="slider-overlay">
+                            <div class="slider-box">
+                                <div class="slider-title">COLEÇÃO COVID19</div>
+                                {{-- <div class="slider-subtitle">CONFIRA</div> --}}
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </li>
         </ul>
     </div>

@@ -1236,6 +1236,7 @@ a.see-more:hover {
 .name-price {
     text-decoration: none;
     width: 100%;
+    text-transform: uppercase;
 }
 
 .name-price h5 {
