@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Produtos;
+use App\Category;
+use App\Brands;
 
 class HomeController extends Controller
 {
@@ -14,7 +16,9 @@ class HomeController extends Controller
 
     public function show(){
         $data = [
-            'produtos' => Produtos::all()
+            'products' => Produtos::all(),
+            'categories' => Category::all(),
+            'brands' => Brands::all(),
         ];
 
         return view('products')->with('data', $data);

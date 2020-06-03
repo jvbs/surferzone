@@ -1,8 +1,8 @@
 <div class="col-md-9 bg-color">
     <div class="product-grid row">
-        @foreach ($data['produtos'] as $produto)
+        @foreach ($data['products'] as $produto)
             <div class="col col-md-4 col-xs-6">
-                <a class="product" href="detail.html">
+                <a class="product" href="#">
                     <div class="product-img">
                         <div class="item">
                             <img src="{{ asset('storage/img/products/'.$produto->img) }}" alt="item">
@@ -22,7 +22,7 @@
             </div>
         @endforeach
     </div>
-    <div class="grid-pagination">
+    {{-- <div class="grid-pagination">
         <ul>
             <li><a class="highlight" href="">1</a></li>
             <li><a href="">2</a></li>
@@ -30,5 +30,5 @@
             <li><a href="">4</a></li>
             <li><a href=""><i class="ion-chevron-right"></i></a></li>
         </ul>
-    </div>
+    </div> --}}
 </div>
