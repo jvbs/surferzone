@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Produtos;
 use App\Brands;
+use App\Category;
 use Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class ProdutosController extends Controller
+class ProductsController extends Controller
 {
 
     public function __construct()
@@ -20,7 +21,11 @@ class ProdutosController extends Controller
 
     public function create()
     {
-        return view('admin.products.create')->with('brands', Brands::all());
+        $data = [
+            'brands' => Brands::all(),
+            'categories' => Category::all(),
+        ];
+        return view('admin.products.create')->with('data', $data);
     }
 
 
@@ -81,6 +86,7 @@ class ProdutosController extends Controller
         $data = [
             'product' => $produto,
             'brands' => Brands::all(),
+            'categories' => Category::all(),
         ];
 
         return view('admin.products.edit')->with('data', $data);
@@ -98,9 +104,9 @@ class ProdutosController extends Controller
 
         $request->validate([
             'name' => 'required|between:5,50',
-            'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
+            'price' => 'required|numeric',
             'description' => 'required',
-            'img' => 'required|image',
+            'img' => 'image',
             'discount' => 'required|between:1,100',
             'size_id'=> 'required|integer',
             'brand_id'=> 'required|integer',

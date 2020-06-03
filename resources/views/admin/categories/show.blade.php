@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+@include('sweetalert::alert')
 <script defer>
     $(function(){
         $("#datatable").DataTable({
@@ -10,7 +11,7 @@
             "bInfo": false,
             "columnDefs": [
                 { "orderable": false, "targets": 2 },
-                { "orderable": false, "targets": 3 }
+                // { "orderable": false, "targets": 3 }
             ]
         })
     })
@@ -18,8 +19,8 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12" style="margin-bottom:35px">
-            <h1 style="display: contents">Produtos</h1>
-            <a href="{{ route('admin.products.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus-circle"></i> Criar</a>
+            <h1 style="display: contents">Categorias</h1>
+        <a href="{{ route('admin.categories.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus-circle"></i> Criar</a>
         </div>
         <div class="col-lg-12">
             <div class="table-responsive">
@@ -27,23 +28,16 @@
                     <thead>
                         <th>#</th>
                         <th>Nome</th>
-                        <th>Preço</th>
-                        <th>Desconto</th>
-                        <th>Descrição</th>
                         <th>Ações</th>
-                        {{-- <th>Imagem</th> --}}
                     </thead>
                     <tbody>
-                        @foreach ($data as $product)
+                        @foreach ($data as $category)
                             <tr>
-                                <td>{{ $product->id }}</td>
-                                <td>{{ $product->name }}</td>
-                                <td>{{ $product->price }}</td>
-                                <td>{{ $product->discount }}%</td>
-                                <td>{{ $product->description }}</td>
+                                <td>{{ $category->id }}</td>
+                                <td>{{ $category->name }}</td>
                                 <td style="display:inline-flex;align-content:space-between">
-                                    <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-circle btn-md btn-warning" style="margin-right:2px"><i class="fa fa-pencil"></i></a>
-                                    <form action="{{ route('admin.products.destroy', $product->id) }}" onsubmit="return confirm('Você tem certeza que excluir {{ $product->name }}?')" method="POST">
+                                    <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-circle btn-md btn-warning" style="margin-right:2px"><i class="fa fa-pencil"></i></a>
+                                    <form action="{{ route('admin.categories.destroy', $category->id) }}" onsubmit="return confirm('Você tem certeza que excluir: {{ $category->name }}?')" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-circle btn-md btn-danger" style="margin-left:2px"><i class="fa fa-trash"></i></button>

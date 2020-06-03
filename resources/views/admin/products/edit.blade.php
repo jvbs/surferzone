@@ -1,7 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-
+<script src="{{ asset('js/plugins/jquery.mask.min.js') }}" defer></script>
+<script src="{{ asset('js/maskForm.js') }}" defer></script>
 <div class="container">
     <div class="row">
         <div class="col-lg-12" style="margin-bottom:35px">
@@ -142,13 +143,18 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="input-product-category_id">Categoria</label>
-                <input
-                    type="number"
-                    value="{{ old('category_id') ?? $data['product']->category_id }}"
-                    class="form-control @error('category_id') is-invalid @enderror"
-                    id="input-product-category_id"
-                    name="category_id"
-                    autocomplete="off">
+                <select class="form-control" name="category_id" id="input-product-category_id">
+                    <option value="">--SELECIONE--</option>
+                    @foreach ($data['categories'] as $categories)
+                        @php
+                            if($categories->id == $data['product']->category_id){
+                                echo "<option value='$categories->id' selected>$categories->name</option>";
+                            } else {
+                                echo "<option value='$categories->id'>$categories->name</option>";
+                            }
+                        @endphp
+                    @endforeach
+                </select>
 
                 @error('category_id')
                     <span class="invalid-feedback" role="alert">
@@ -180,7 +186,8 @@
                         type="file"
                         class="custom-file-input @error('img') is-invalid @enderror"
                         name="img"
-                        id="input-product-img">
+                        id="input-product-img"
+                        value="{{ old('img') }}">
                     <label class="custom-file-label" for="input-product-img">Escolher imagem...</label>
 
                     @error('img')

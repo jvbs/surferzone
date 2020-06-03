@@ -38,16 +38,27 @@ Auth::routes();
 
 
 Route::prefix('admin')->group(function(){
-    Route::get('/home', 'Admin\HomeController@index')->name('admin.home');
+    Route::get('/home', 'Admin\AppController@index')->name('admin.home');
+
+    Route::prefix('categorias')->group(function(){
+        Route::get('/', 'Admin\CategoriesController@show')->name('admin.categories.show');
+        Route::get('/novo', 'Admin\CategoriesController@create')->name('admin.categories.create');
+        Route::post('/novo', 'Admin\CategoriesController@store')->name('admin.categories.store');
+
+        Route::get('{category}/editar', 'Admin\CategoriesController@edit')->name('admin.categories.edit');
+        Route::put('{category}/editar', 'Admin\CategoriesController@update')->name('admin.categories.update');
+
+        Route::delete('{category}', 'Admin\CategoriesController@destroy')->name('admin.categories.destroy');
+    });
+
     Route::prefix('produtos')->group(function(){
-        Route::get('/', 'Admin\ProdutosController@show')->name('admin.products.show');
-        Route::get('/novo', 'Admin\ProdutosController@create')->name('admin.products.create');
-        Route::post('/novo', 'Admin\ProdutosController@store')->name('admin.products.store');
+        Route::get('/', 'Admin\ProductsController@show')->name('admin.products.show');
+        Route::get('/novo', 'Admin\ProductsController@create')->name('admin.products.create');
+        Route::post('/novo', 'Admin\ProductsController@store')->name('admin.products.store');
 
-        Route::get('{produto}/editar', 'Admin\ProdutosController@edit')->name('admin.products.edit');
-        Route::put('{produto}/editar', 'Admin\ProdutosController@update')->name('admin.products.update');
+        Route::get('{produto}/editar', 'Admin\ProductsController@edit')->name('admin.products.edit');
+        Route::put('{produto}/editar', 'Admin\ProductsController@update')->name('admin.products.update');
 
-        Route::delete('{produto}', 'Admin\ProdutosController@destroy')->name('admin.products.destroy');
-
+        Route::delete('{produto}', 'Admin\ProductsController@destroy')->name('admin.products.destroy');
     });
 });

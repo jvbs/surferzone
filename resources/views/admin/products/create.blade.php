@@ -122,7 +122,7 @@
                     name="brand_id"
                     id="input-product-brand_id">
                     <option value="">--SELECIONE--</option>
-                    @foreach ($brands as $brand)
+                    @foreach ($data['brands'] as $brand)
                         @php
                             if($brand->id == old('brand_id')){
                                 echo "<option value='$brand->id' selected>$brand->name</option>";
@@ -141,13 +141,21 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="input-product-category_id">Categoria</label>
-                <input
-                    type="number"
-                    value="{{ old('category_id') }}"
+                <select
                     class="form-control @error('category_id') is-invalid @enderror"
-                    id="input-product-category_id"
                     name="category_id"
-                    autocomplete="off">
+                    id="input-product-category_id">
+                    <option value="">--SELECIONE--</option>
+                    @foreach ($data['categories'] as $categories)
+                        @php
+                            if($categories->id == old('category_id')){
+                                echo "<option value='$categories->id' selected>$categories->name</option>";
+                            } else {
+                                echo "<option value='$categories->id'>$categories->name</option>";
+                            }
+                        @endphp
+                    @endforeach
+                </select>
 
                 @error('category_id')
                     <span class="invalid-feedback" role="alert">

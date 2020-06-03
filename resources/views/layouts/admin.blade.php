@@ -107,18 +107,4 @@
         </main>
     </div>
 </body>
-<script>
-    $(function(){
-        $("#datatable").DataTable({
-            "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese-Brasil.json",
-            },
-            "bInfo": false,
-            "columnDefs": [
-                { "orderable": false, "targets": 2 },
-                { "orderable": false, "targets": 3 }
-            ]
-        })
-    })
-</script>
 </html>
