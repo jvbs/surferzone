@@ -18,7 +18,7 @@
 <div class="container">
     <div class="row mb-4">
         <div class="col-1">
-            <a href="{{ route('admin.home') }}" class="btn btn-sm btn-secondary pull-right">Voltar</a>
+            <a href="{{ route('admin.home') }}" class="btn btn-sm btn-secondary">Voltar</a>
         </div>
     </div>
     <div class="row">
