@@ -32,9 +32,9 @@ Route::get('/checkout', function () {
 
 Auth::routes();
 
-Route::get('/home', 'Admin\AppController@index')->name('admin.home');
 
-Route::middleware('admin')->prefix('admin')->group(function(){
+Route::prefix('admin')->group(function(){
+    Route::get('/home', 'Admin\AppController@index')->name('admin.home');
     Route::prefix('categorias')->group(function(){
         Route::get('/', 'Admin\CategoriesController@show')->name('admin.categories.show');
         Route::get('/novo', 'Admin\CategoriesController@create')->name('admin.categories.create');
@@ -55,5 +55,16 @@ Route::middleware('admin')->prefix('admin')->group(function(){
         Route::put('{produto}/editar', 'Admin\ProductsController@update')->name('admin.products.update');
 
         Route::delete('{produto}', 'Admin\ProductsController@destroy')->name('admin.products.destroy');
+    });
+
+    Route::prefix('meus-pedidos')->group(function(){
+        Route::get('/', 'Admin\OrdersController@show')->name('admin.orders.show');
+        // Route::get('/novo', 'Admin\ProductsController@create')->name('admin.products.create');
+        // Route::post('/novo', 'Admin\ProductsController@store')->name('admin.products.store');
+
+        // Route::get('{produto}/editar', 'Admin\ProductsController@edit')->name('admin.products.edit');
+        // Route::put('{produto}/editar', 'Admin\ProductsController@update')->name('admin.products.update');
+
+        // Route::delete('{produto}', 'Admin\ProductsController@destroy')->name('admin.products.destroy');
     });
 });

@@ -6,7 +6,6 @@
     <section id="main-content">
         <div class="section-container">
             <div class="section-wrapper">
-
                 <!-- INICIO TOP CONTENT -->
                 @include('layouts.billing.topcontent')
                 <!-- FIM TOP CONTENT -->

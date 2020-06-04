@@ -198,12 +198,29 @@
                 </div>
             </div>
         </div>
-        <div class="form-row" style="display:grid">
+        <div class="form-row" id="preview-block" style="display:grid">
             <span>Preview:</span>
-            <img style="width:30%;height:auto;box-shadow: 0px 0px 20px #0000004d;margin-top:5px" src="{{ asset('storage/img/products/'.$data['product']->img) }}" alt="Imagem {{ $data['product']->name }}">
+            <img style="width:30%;height:auto;box-shadow: 0px 0px 20px #0000004d;margin-top:5px" id="preview-img" src="{{ asset('storage/img/products/'.$data['product']->img) }}" alt="Imagem {{ $data['product']->name }}">
         </div>
         <button class="btn btn-success pull-right"><i class="fa fa-check-circle"></i> Editar produto</button>
     </form>
 </div>
+{{-- <script defer>
+    $("#input-product-img").change(function(e) {
+    for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
+        var file = e.originalEvent.srcElement.files[i];
+        var img = document.createElement("img");
+        var imgBase64
+        var reader = new FileReader();
+        reader.onloadend = function() {
+            img.src = reader.result;
+            imgBase64 = reader.result;
+        }
+        reader.readAsDataURL(file);
+        console.log(imgBase64)
 
+        $("#preview-img").attr("src", reader.result);
+    }
+    });
+</script> --}}
 @endsection
