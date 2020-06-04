@@ -16,6 +16,7 @@ class UserSeeder extends Seeder
             'name' => 'Administrador Surferzone',
             'email' => 'admin@surferzone.com.br',
             'password' => Hash::make('surferzone'),
+            'role' => 'admin'
         ]);
     }
 }

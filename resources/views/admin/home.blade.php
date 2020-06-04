@@ -23,6 +23,7 @@
                 </div>
             </div>
         </div>
+        @if(auth()->user()->isAdmin())
         <div class="col-lg-4 col-md-6 col-6 mb-4">
             <div class="card">
                 <img class="card-img-top" src="https://via.placeholder.com/286x180.png?text=Produtos" alt="Card image cap">
@@ -33,6 +34,7 @@
                 </div>
             </div>
         </div>
+        @endif
     </div>
 </div>
 @endsection

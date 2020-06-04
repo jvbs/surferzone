@@ -13,8 +13,8 @@
             <span>R$ {{ $totalPrice }}</span>
         </div>
         <div class="cart-options-buttons pull-right">
-            <button class="btn btn-default" type="button">Continuar Comprando</button>
-            <button class="btn btn-success" type="button">Finalizar Compra</button>
+            <a href="{{ route('show') }}" class="btn btn-default" type="a">Continuar Comprando</a>
+            <a class="btn btn-success" type="button">Finalizar Compra</a>
         </div>
     </div>
 </div>

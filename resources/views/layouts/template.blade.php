@@ -43,10 +43,12 @@
                             <li>
                                 <a href="{{ route('cart.show') }}" class="bag">
                                     <i class="fa fa-shopping-bag"></i>
-                                    @if(auth()->user()->cart->products->count() > 0)
-                                        <span class="count">
-                                            {{ auth()->user()->cart->products->count() }}
-                                        </span>
+                                    @if(auth()->user() && auth()->user()->cart != null)
+                                        @if(auth()->user()->cart->products->count() > 0)
+                                            <span class="count">
+                                                {{ auth()->user()->cart->products->count() }}
+                                            </span>
+                                        @endif
                                     @endif
                                 </a>
                             </li>

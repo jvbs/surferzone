@@ -32,10 +32,9 @@ Route::get('/checkout', function () {
 
 Auth::routes();
 
+Route::get('/home', 'Admin\AppController@index')->name('admin.home');
 
-Route::prefix('admin')->group(function(){
-    Route::get('/home', 'Admin\AppController@index')->name('admin.home');
-
+Route::middleware('admin')->prefix('admin')->group(function(){
     Route::prefix('categorias')->group(function(){
         Route::get('/', 'Admin\CategoriesController@show')->name('admin.categories.show');
         Route::get('/novo', 'Admin\CategoriesController@create')->name('admin.categories.create');
