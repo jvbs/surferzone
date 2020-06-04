@@ -2,7 +2,7 @@
     <div class="product-grid row">
         @if(count($data['products']) > 0)
             @foreach ($data['products'] as $produto)
-                <div class="col col-md-4 col-xs-6">
+                <div class="col-lg-4 col-xs-6">
                     <a class="product" href="{{ route('show.product.detail', $produto->id) }}">
                         <div class="product-img">
                             <div class="item">

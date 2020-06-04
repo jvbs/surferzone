@@ -9,6 +9,7 @@ use App\Category;
 use Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class ProductsController extends Controller
 {
@@ -41,7 +42,7 @@ class ProductsController extends Controller
             'name' => 'required|between:5,50',
             'price' => 'required|numeric',
             'description' => 'required',
-            'img' => 'required|image',
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'discount' => 'required|between:1,100',
             'size_id'=> 'required|integer',
             'brand_id'=> 'required|integer',
@@ -53,7 +54,7 @@ class ProductsController extends Controller
         // inserindo informações no db
         $produtos = Produtos::create($request->all());
 
-        if ($request->hasFile('img')) {
+        if ($request->hasFile('img')){
             $completeFilename = $request->file('img')->getClientOriginalName();
             // nome do arquivo
             $filename = pathinfo($completeFilename, PATHINFO_FILENAME);
@@ -61,10 +62,13 @@ class ProductsController extends Controller
             $ext = $request->file('img')->getClientOriginalExtension();
             $finalFilename = 'surferzone_'.md5($filename).time().'.'.$ext;
             // upload da img
-            $request->file('img')->storeAs('public/img/products', $finalFilename);
+            $imagePath = $request['img']->storeAs('img/products', $finalFilename, 'public');
+            // redimensionando a imagem
+            $image = Image::make(public_path("storage/{$imagePath}"))->fit(500, 550);
+            $image->save();
             // atualizando caminho da img
-            $produtos->img = $finalFilename;
-            $produtos->save();
+            $produto->img = $finalFilename;
+            $produto->save();
 
             Alert::success('Show!', 'Um novo produto foi criado com sucesso!');
 
@@ -106,7 +110,7 @@ class ProductsController extends Controller
             'name' => 'required|between:5,50',
             'price' => 'required|numeric',
             'description' => 'required',
-            'img' => 'image',
+            'img' => 'image|mimes:jpeg,png,jpg,gif,svg',
             'discount' => 'required|between:1,100',
             'size_id'=> 'required|integer',
             'brand_id'=> 'required|integer',
@@ -128,7 +132,10 @@ class ProductsController extends Controller
             $ext = $request->file('img')->getClientOriginalExtension();
             $finalFilename = 'surferzone_'.md5($filename).time().'.'.$ext;
             // upload da img
-            $request->file('img')->storeAs('public/img/products', $finalFilename);
+            $imagePath = $request['img']->storeAs('img/products', $finalFilename, 'public');
+            // redimensionando a imagem
+            $image = Image::make(public_path("storage/{$imagePath}"))->fit(500, 550);
+            $image->save();
             // atualizando caminho da img
             $produto->img = $finalFilename;
             $produto->save();
