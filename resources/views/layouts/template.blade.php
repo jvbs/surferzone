@@ -41,9 +41,11 @@
                                 @endauth
                             @endif
                             <li>
-                                <a href="#0" class="bag">
+                                <a href="{{ route('cart.show') }}" class="bag">
                                     <i class="fa fa-shopping-bag"></i>
-                                    <span class="count">2</span>
+                                    <span class="count">
+                                        {{ auth()->user()->cart->products->count() }}
+                                    </span>
                                 </a>
                             </li>
                         </ul>

@@ -22,10 +22,9 @@ Route::get('/produtos/{brand}/marca', 'HomeController@searchByBrand')->name('sho
 
 Route::get('/produtos/{product}/detalhe', 'HomeController@viewProduct')->name('show.product.detail');
 
-
-Route::get('/meu-carrinho', function () {
-    return view('cart');
-});
+Route::get('/meu-carrinho', 'CartsController@show')->name('cart.show');
+Route::post('/{product}/adicionar-ao-carrinho', 'CartsController@store')->name('cart.store');
+Route::delete('/{product}/remover-carrinho', 'CartsController@destroy')->name('cart.destroy');
 
 Route::get('/checkout', function () {
     return view('billing');

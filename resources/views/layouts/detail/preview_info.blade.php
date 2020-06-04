@@ -22,10 +22,11 @@
         <p>{{ $data->description }}</p>
     </div>
     @if($data->stock > 0)
-        <div class="block-options">
-            <label for="amount">Quantidade</label>
-            <input type="number" name="amount" class="form-control" min="1" max="10" value="1">
-        </div>
-        <div class="block-button"><button class="button" type="button"><i class="fa fa-shopping-cart"></i> Adicionar ao carrinho</button></div>
+        <form action="{{ route('cart.store', $data->id) }}" method="POST">
+            @csrf
+            <div class="block-button">
+                <button class="button" type="submit"><i class="fa fa-shopping-cart"></i> Adicionar ao carrinho</button>
+            </div>
+        </form>
     @endif
 </div>

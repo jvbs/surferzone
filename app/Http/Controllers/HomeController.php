@@ -16,9 +16,9 @@ class HomeController extends Controller
 
     public function show(){
         $data = [
-            'products' => Produtos::all(),
-            'categories' => Category::all(),
-            'brands' => Brands::all(),
+            'products' => Produtos::orderBy('created_at', 'desc')->get(),
+            'categories' => Category::orderBy('name')->get(),
+            'brands' => Brands::orderBy('name')->get(),
         ];
 
         return view('products')->with('data', $data);
@@ -27,8 +27,8 @@ class HomeController extends Controller
     public function searchByCategory(Category $category){
         $data = [
             'products' => $category->produtos()->paginate(15),
-            'categories' => Category::all(),
-            'brands' => Brands::all(),
+            'categories' => Category::orderBy('name')->get(),
+            'brands' => Brands::orderBy('name')->get(),
             'currentCategory' => $category
         ];
 
@@ -38,8 +38,8 @@ class HomeController extends Controller
     public function searchByBrand(Brands $brand){
         $data = [
             'products' => $brand->produtos()->paginate(15),
-            'categories' => Category::all(),
-            'brands' => Brands::all(),
+            'categories' => Category::orderBy('name')->get(),
+            'brands' => Brands::orderBy('name')->get(),
             'currentBrand' => $brand
         ];
 
