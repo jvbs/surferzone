@@ -30,50 +30,24 @@
         <div class="col-12">
             <table class="table table-bordered table-striped compact" id="datatable" style="margin-top: 25px">
                 <thead>
-                    <tr>
-                        <th scope="col">Referência do pedido</th>
-                        <th scope="col">Data</th>
-                        <th scope="covv">Valovvr total</th>
-                        <th scope="col">Pagamento</th>
-                        <th scope="col">Estado</th>
-                    </tr>
+                    <th scope="col"># Pedido</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Valor total</th>
+                    <th scope="col">Pagamento</th>
+                    <th scope="col">Estado</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row"><a>SMSNOLQVJ<a></th>
-                            <td>26-09-2017</td>
-                        <td>R$ 156,10</td>
-                        <td>Boleto Itau</td>
-                        <td>Enviado</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"><a>YECQZOWDG<a></th>
-                            <td>31-10-2018</td>
-                            <td>R$ 201,28</td>
-                            <td>Mercado Pago - Boleto</td>
-                            <td>Enviado</td>
-                        </tr>
+                    @foreach ($orders as $order)
                         <tr>
-                            <th scope="row"><a>EEAHOVTEC<a></th>
-                                <td>27-05-2019</td>
-                                <td>R$ 133,71</td>
-                                <td>Mercado Pago - Cartão de Crédito</td>
-                                <td>Cancelado</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a>EZTEWOVAP<a></th>
-                                    <td>27-05-2019</td>
-                                    <td>R$ 529,23</td>
-                                    <td>Depósito com desconto</td>
-                                    <td>Cancelado</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"><a>EBGMZROWK<a></th>
-                        <td>27-05-2019</td>
-                        <td>R$ 133,71</td>
-                        <td>Mercado Pago - Boleto</td>
-                        <td>Enviado</td>
-                    </tr>
+                            <td>{{ $order->id }}</td>
+                            <td>{{ $order->created_at }}</td>
+                            <td>R$ {{ $order->total }}</td>
+                            <td>Cartão de Crédito final {{ rand(1000, 9999) }}</td>
+                            <td>
+                                <span class="badge badge-success">{{ strtoupper($order->status) }}</span>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

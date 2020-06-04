@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Produtos;
 use App\Category;
 use App\Brands;
+use App\Newsletter;
+use Alert;
 
 class HomeController extends Controller
 {
@@ -48,5 +50,19 @@ class HomeController extends Controller
 
     public function viewProduct(Produtos $product){
         return view('detail')->with('data', $product);
+    }
+
+    public function assignNewsletter(Request $request){
+        // dd($request);
+
+        $request->validate([
+            'email' => 'required|email|unique:newsletters'
+        ]);
+
+        Newsletter::create($request->all());
+
+        Alert::success('Show!', 'Cadastrado com sucesso!');
+
+        return view('welcome');
     }
 }

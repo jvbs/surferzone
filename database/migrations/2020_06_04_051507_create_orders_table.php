@@ -15,7 +15,15 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            // $table->string('order_number');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('cart_id');
+            $table->double('total');
+            $table->enum('status', ['entregue', 'pendente', 'pago']);
             $table->timestamps();
+
+            $table->index('user_id');
+            $table->index('cart_id');
         });
     }
 

@@ -58,10 +58,12 @@ class CartsController extends Controller
         $user = auth()->user();
         $cart = $user->cart;
 
-        DB::table('cart_produtos')->where([
+        $result = DB::table('cart_produtos')->take(1)->where([
             ['cart_id', $cart->id],
-            ['produtos_id',$product->id]
+            ['produtos_id', $product->id],
+            // ['id' => $cart->products->id],
         ])->delete();
+
 
         return view('cart')->with('products', $cart->products);
     }
