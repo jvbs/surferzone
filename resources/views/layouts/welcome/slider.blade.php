@@ -16,7 +16,7 @@
                     <div class="section-background bg" style="background-image: url({{ asset('img/slider-1.jpg') }});">
                         <div class="slider-overlay">
                             <div class="slider-box">
-                                <div class="slider-title">COLEÇÃO #COVID19</div>
+                                <div class="slider-title">OFERTAS</div>
                                 {{-- <div class="slider-subtitle">CONFIRA</div> --}}
                             </div>
                         </div>

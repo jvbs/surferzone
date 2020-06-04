@@ -13,14 +13,14 @@
         </div>
     </div>
     <div class="row mt-3 mb-4">
-        <div class="col-lg-4 col-md-6 col-6 mb-4">
+        {{-- <div class="col-lg-4 col-md-6 col-6 mb-4">
             <div class="card card-shadow">
                 <div class="card-body text-center">
                     <h5 class="card-title">Perfil</h5>
                     <a href="{{ route('admin.categories.show') }}" class="btn btn-primary mt-2">Visualizar</a>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="col-lg-4 col-md-6 col-6 mb-4">
             <div class="card card-shadow">
                 <div class="card-body text-center">

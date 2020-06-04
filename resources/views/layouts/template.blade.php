@@ -1,3 +1,8 @@
+@php
+    use App\Category;
+    $categories = Category::all();
+@endphp
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -84,10 +89,11 @@
                                         </div>
                                         <div class="second-level-content">
                                             <ul>
-                                                <li><a href="#0">Chinelo</a></li>
-                                                <li><a href="#0">Camisetas</a></li>
-                                                <li><a href="#0">Camisas</a></li>
-                                                <li><a href="#0">Bermudas</a></li>
+                                                @foreach ($categories as $item)
+                                                    @if(in_array($item->name, ['Chinelos', 'Camisetas', 'Camisas', 'Bermudas']))
+                                                        <li><a href="{{ route('show.search.category', $item->id) }}">{{ $item->name }}</a></li>
+                                                    @endif
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
@@ -97,10 +103,12 @@
                                         </div>
                                         <div class="second-level-content">
                                             <ul>
-                                                <li><a href="#0">Pranchas</a></li>
-                                                <li><a href="#0">Roupa de Mergulho</a></li>
-                                                <li><a href="#0">Leash</a></li>
-                                                <li><a href="#0">Quilhas</a></li>
+                                                @foreach ($categories as $item)
+                                                    @if(in_array($item->name, ['Pranchas', 'Roupas de Mergulho', 'Leash', 'Quilhas']))
+                                                        <li><a href="{{ route('show.search.category', $item->id) }}">{{ $item->name }}</a></li>
+                                                    @endif
+                                                @endforeach
+
                                             </ul>
                                         </div>
                                     </div>
@@ -110,10 +118,12 @@
                                         </div>
                                         <div class="second-level-content">
                                             <ul>
-                                                <li><a href="#0">Capa de Prancha</a></li>
-                                                <li><a href="#0">Óculos de sol</a></li>
-                                                <li><a href="#0">Chapéus</a></li>
-                                                <li><a href="#0">Carteira</a></li>
+                                                @foreach ($categories as $item)
+                                                    @if(in_array($item->name, ['Capas de Prancha', 'Chápeus', 'Óculos de sol', 'Carteiras']))
+                                                        <li><a href="{{ route('show.search.category', $item->id) }}">{{ $item->name }}</a></li>
+                                                    @endif
+                                                @endforeach
+                                                <li><a href="{{ route('show') }}"><strong>VER TODOS</strong></a></li>
                                             </ul>
                                         </div>
                                     </div>
