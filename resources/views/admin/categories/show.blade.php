@@ -9,6 +9,7 @@
                 "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese-Brasil.json",
             },
             "bInfo": false,
+            "order": [[ 0, "desc" ]],
             "columnDefs": [
                 { "orderable": false, "targets": 2 },
                 // { "orderable": false, "targets": 3 }

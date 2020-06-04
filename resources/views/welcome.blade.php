@@ -8,7 +8,7 @@
     <!-- FIM SLIDER -->
 
     <!-- INICIO DIVIDER -->
-    @include('layouts.welcome.divider')
+    {{-- @include('layouts.welcome.divider') --}}
     <!-- FIM DIVIDER -->
 
     <!-- INICIO MOSAIC -->

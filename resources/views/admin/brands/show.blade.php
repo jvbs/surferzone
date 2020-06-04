@@ -9,6 +9,7 @@
                 "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese-Brasil.json",
             },
             "bInfo": false,
+            "order": [[ 0, "desc" ]],
             "columnDefs": [
                 { "orderable": false, "targets": 2 },
                 // { "orderable": false, "targets": 3 }
@@ -27,7 +28,7 @@
     </div>
     <div class="row">
         <div class="col-lg-12" style="margin-bottom:35px">
-            <h1 style="display: contents">Categorias</h1>
+            <h1 style="display: contents">Marcas</h1>
         </div>
         <div class="col-lg-12">
             <div class="table-responsive">
