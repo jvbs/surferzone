@@ -47,6 +47,15 @@ class ProductsController extends Controller
             'brand_id'=> 'required|integer',
             'category_id'=> 'required|integer',
             'stock'=> 'required|integer|between:1,999'
+        ], [], [
+            'name' => '"Nome do produto"',
+            'price' => '"Preço"',
+            'description' => '"Descrição"',
+            'img' => '"Imagem"',
+            'discount' => '"Desconto"',
+            'brand_id'=> '"Marca"',
+            'category_id'=> '"Categoria"',
+            'stock'=> '"Estoque"',
         ]);
 
         // inserindo informações no db
@@ -113,6 +122,15 @@ class ProductsController extends Controller
             'brand_id'=> 'required|integer',
             'category_id'=> 'required|integer',
             'stock'=> 'required|integer|between:1,999'
+        ], [], [
+            'name' => '"Nome do produto"',
+            'price' => '"Preço"',
+            'description' => '"Descrição"',
+            'img' => '"Imagem"',
+            'discount' => '"Desconto"',
+            'brand_id'=> '"Marca"',
+            'category_id'=> '"Categoria"',
+            'stock'=> '"Estoque"',
         ]);
 
         $produto->update($request->all());
