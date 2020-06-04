@@ -16,10 +16,17 @@
     })
 </script>
 <div class="container">
+    <div class="row mb-4">
+        <div class="col-1">
+            <a href="{{ route('admin.home') }}" class="btn btn-sm btn-secondary">Voltar</a>
+        </div>
+        <div class="col-11">
+            <a href="{{ route('admin.products.create') }}" class="btn btn-sm btn-success pull-right"><i class="fa fa-plus-circle"></i> Criar</a>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-12" style="margin-bottom:35px">
             <h1 style="display: contents">Produtos</h1>
-            <a href="{{ route('admin.products.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus-circle"></i> Criar</a>
         </div>
         <div class="col-lg-12">
             <div class="table-responsive">
@@ -40,7 +47,7 @@
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->price }}</td>
                                 <td>{{ $product->discount }}%</td>
-                                <td>{{ $product->description }}</td>
+                                <td>{{ substr($product->description, 0, 35) }}...</td>
                                 <td style="display:inline-flex;align-content:space-between">
                                     <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-circle btn-md btn-warning" style="margin-right:2px"><i class="fa fa-pencil"></i></a>
                                     <form action="{{ route('admin.products.destroy', $product->id) }}" onsubmit="return confirm('Você tem certeza que excluir {{ $product->name }}?')" method="POST">

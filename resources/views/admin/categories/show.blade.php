@@ -17,10 +17,17 @@
     })
 </script>
 <div class="container">
+    <div class="row mb-4">
+        <div class="col-1">
+            <a href="{{ route('admin.home') }}" class="btn btn-sm btn-secondary">Voltar</a>
+        </div>
+        <div class="col-11">
+            <a href="{{ route('admin.categories.create') }}" class="btn btn-sm btn-success pull-right"><i class="fa fa-plus-circle"></i> Criar</a>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-12" style="margin-bottom:35px">
             <h1 style="display: contents">Categorias</h1>
-        <a href="{{ route('admin.categories.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus-circle"></i> Criar</a>
         </div>
         <div class="col-lg-12">
             <div class="table-responsive">

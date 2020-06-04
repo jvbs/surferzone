@@ -4,6 +4,11 @@
 <script src="{{ asset('js/plugins/jquery.mask.min.js') }}" defer></script>
 <script src="{{ asset('js/maskForm.js') }}" defer></script>
 <div class="container">
+    <div class="row mb-4">
+        <div class="col-1">
+            <a href="{{ route('admin.products.show') }}" class="btn btn-sm btn-secondary">Voltar</a>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-12" style="margin-bottom:35px">
             <h1>Novo produto</h1>

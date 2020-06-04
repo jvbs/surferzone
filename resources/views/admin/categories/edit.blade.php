@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container">
+    <div class="row mb-4">
+        <div class="col-1">
+            <a href="{{ route('admin.categories.show') }}" class="btn btn-sm btn-secondary">Voltar</a>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-12" style="margin-bottom:35px">
             <h1>Editar categoria</h1>
