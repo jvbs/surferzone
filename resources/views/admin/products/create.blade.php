@@ -99,7 +99,7 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-3">
+            {{-- <div class="form-group col-md-3">
                 <label for="input-product-size_id">Tamanho</label>
                 <input
                     type="number"
@@ -114,7 +114,7 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-            </div>
+            </div> --}}
             <div class="form-group col-md-3">
                 <label for="input-product-brand_id">Marca</label>
                 <select
@@ -163,7 +163,7 @@
                     </span>
                 @enderror
             </div>
-            <div class="form-group col-md-3">
+            {{-- <div class="form-group col-md-3">
                 <label for="input-product-color_id">Cor</label>
                 <input
                     type="number"
@@ -178,7 +178,7 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-            </div>
+            </div> --}}
         </div>
         <div class="form-row">
             <div class="form-group col-lg-12">

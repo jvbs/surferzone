@@ -44,9 +44,7 @@ class ProductsController extends Controller
             'description' => 'required',
             'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'discount' => 'required|between:1,100',
-            'size_id'=> 'required|integer',
             'brand_id'=> 'required|integer',
-            'color_id'=> 'required|integer',
             'category_id'=> 'required|integer',
             'stock'=> 'required|integer|between:1,999'
         ]);
@@ -67,8 +65,8 @@ class ProductsController extends Controller
             $image = Image::make(public_path("storage/{$imagePath}"))->fit(500, 550);
             $image->save();
             // atualizando caminho da img
-            $produto->img = $finalFilename;
-            $produto->save();
+            $produtos->img = $finalFilename;
+            $produtos->save();
 
             Alert::success('Show!', 'Um novo produto foi criado com sucesso!');
 
@@ -112,9 +110,7 @@ class ProductsController extends Controller
             'description' => 'required',
             'img' => 'image|mimes:jpeg,png,jpg,gif,svg',
             'discount' => 'required|between:1,100',
-            'size_id'=> 'required|integer',
             'brand_id'=> 'required|integer',
-            'color_id'=> 'required|integer',
             'category_id'=> 'required|integer',
             'stock'=> 'required|integer|between:1,999'
         ]);
