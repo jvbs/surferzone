@@ -2,7 +2,7 @@
 
 ## Surferzone
 
-Conceito de e-commerce dinâmico a área de administrativa para gerenciamento de produtos.
+Conceito de e-commerce dinâmico a área administrativa para gerenciamento de produtos.
 
 ## Contribuidores
 
