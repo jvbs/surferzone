@@ -1,9 +1,8 @@
 ![Screenshot](intro.png)
 
-## Museu Haikai
+## Surferzone
 
-Sejam bem-vindos ao Museu Haikai, realizamos suas publicações de obras textuais.
-Venham compartilhar suas reflexões, poesias, frases, pensamentos, críticas com os internautas da plataforma.
+Conceito de e-commerce dinâmico a área de administrativa para gerenciamento de produtos.
 
 ## Contribuidores
 
